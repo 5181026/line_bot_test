@@ -8,8 +8,8 @@ from linebot.models import(MessageEvent , TextMessage,TextSendMessage)
 
 app = Flask(__name__)
 
-access_token = ""
-secret = ""
+access_token = "RKS7MyLnXBnWvEAGPPIwNIDc6Q3pxAGrkuVN5mGkmhd1I1rKNW0ajCNTkB/hUqsW1Yk14FkpSHJsTGMwVYzv18RkRzdskWayAOlcsub3Or8nQpOKqG0KZ5rn6nfS4bTbt7VEZTpxTKNfLPQLrTgIgwdB04t89/1O/w1cDnyilFU="
+secret = "159067c8686f57c9bcd3a3a34a3045b1"
 
 line_bot_api = LineBotApi(access_token)
 handler = WebhookHandler(secret)
