@@ -1,7 +1,6 @@
 import os
 
-from flask import Flask , request , abort
-
+from flask import Flask , request , abort , render_template
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import(MessageEvent , TextMessage,TextSendMessage)
@@ -16,7 +15,7 @@ handler = WebhookHandler(secret)
 
 @app.route("/" , methods=["GET"])
 def hello():
-    return "hello world"
+    return render_template("index.html")
 
 @app.route("/callback" , methods=["POST"])
 def callback():
@@ -34,9 +33,11 @@ def callback():
 
 @handler.add(MessageEvent,message=TextMessage)
 def handle_message(event):
+    text = "https://liff.line.me/1657699545-5nm7xM1P"
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        # TextSendMessage(text=event.message.text)
+        TextSendMessage(text=text)
     )
 #test
 if __name__ == "__main__":
