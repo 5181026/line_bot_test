@@ -8,9 +8,11 @@
 <body>
 hello hello
 <dev>
+    <p id="name"></p>
     <p id="language"></p>
     <p id="version"></p>
     <p id="client"></p>
+
 
 </dev>
 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
@@ -28,7 +30,11 @@ hello hello
         console.log(liff.getLineVersion());
         document.getElementById("language").innerHTML = liff.getLanguage()
         document.getElementById("version").innerHTML = liff.getVersion()
-        document.getElementById("client").innerHTML = liff.getClient()
+        document.getElementById("client").innerHTML = liff.isInClient()
+        liff.getProfile().then(function(profile){
+            document.getElementById("name").textContent = profile.displayName;
+            console.log(profile.displayName)
+        })
     })
 </script>
 </body>
